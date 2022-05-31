@@ -21,7 +21,7 @@ namespace Maze
         {
             if (_rb)
             {
-                _rb.AddForce(new Vector3(x, y, z) * speed);
+                _rb.AddForce(new Vector3(-x, y, -z) * speed);
             }
             else
             {
