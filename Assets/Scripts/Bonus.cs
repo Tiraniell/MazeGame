@@ -8,6 +8,8 @@ namespace Maze
     {
         private bool _isIntaractable;
         public Transform _transform;
+        protected Color _color;
+
         public bool isIntaractable
         {
             get { return _isIntaractable; }
@@ -18,20 +20,24 @@ namespace Maze
                 GetComponent<Collider>().enabled = value;
             }
         }
-        private void Awake()
-        {
-            _transform = GetComponent<Transform>();
-        }
+      
 
         void Start()
         {
             isIntaractable = true;
 
+            _color = Random.ColorHSV();
+
+            if(TryGetComponent(out Renderer renderer))
+            {
+                renderer.sharedMaterial.color = _color;
+            }
+
         }
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("Player"))
+            if (isIntaractable||other.CompareTag("Player"))
             {
                 Interaction();
                 isIntaractable = false;

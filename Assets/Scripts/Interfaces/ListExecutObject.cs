@@ -12,15 +12,11 @@ namespace Maze
         public object Current => _intractiveObject[_index];
         public int Lenght => _intractiveObject.Length;
 
-        void Start()
-        {
-
-        }
 
         public IExecute this[int curr]
         {
             get => _intractiveObject[curr];
-            set => _intractiveObject[curr] = value;
+            private set => _intractiveObject[curr] = value;
         }
 
         public void AddExecuteObject(IExecute execute)
@@ -31,14 +27,14 @@ namespace Maze
                 return;
             }
 
-            Array.Resize(ref _intractiveObject, Lenght + 1);
-            _intractiveObject[Lenght - 1] = execute;
+            Array.Resize(ref _intractiveObject, Lenght+1);
+            _intractiveObject[Lenght-1] = execute;
 
         }
 
         public bool MoveNext()
         {
-            if(_index == Lenght - 1)
+            if(_index == Lenght-1)
             {
                 Reset();
                 return false;

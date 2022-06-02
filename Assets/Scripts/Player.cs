@@ -9,12 +9,14 @@ namespace Maze
         private void Awake()
         {
             _transform = transform;
+
             if (GetComponent<Rigidbody>())
             {
                 _rb = GetComponent<Rigidbody>();
             }
+
             isDead = false;
-            health = 100;
+            Health = 100;
         }
 
         public override void Move(float x, float y, float z)

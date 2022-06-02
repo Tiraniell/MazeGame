@@ -12,6 +12,7 @@ namespace Maze
         public InputController(Unit player)
         {
             _player = player;
+            Debug.Log(_player.name);
         }
 
         public void Update()
