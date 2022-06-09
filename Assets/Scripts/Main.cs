@@ -15,6 +15,8 @@ namespace Maze
         private ViewBonus _viewBonus;
         private ViewEndGame _viewEndGame;
 
+        private CameraController _cameraController;
+
         private int _bonusCount;
 
         [SerializeField]private BadBonus badBonus;
@@ -29,6 +31,7 @@ namespace Maze
             _reference = new Reference();
 
             _inputController = new InputController(_player.GetComponent<Unit>());
+            _cameraController = new CameraController(_player.transform, _reference.MainCamera.transform);
             _interactiveObject = new ListExecutObject();
 
             _viewBonus = new ViewBonus(_reference.BonusLabel);
@@ -40,6 +43,7 @@ namespace Maze
 
 
             _interactiveObject.AddExecuteObject(_inputController);
+            _interactiveObject.AddExecuteObject(_cameraController);
 
             foreach (var item in _interactiveObject)
             {
