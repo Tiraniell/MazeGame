@@ -21,6 +21,11 @@ namespace Maze
             vertical = Input.GetAxis("Vertical");
 
             _player.Move(horizontal, 0f, vertical);
+
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                _player.SavePlayer();
+            }
         }
     }
 }

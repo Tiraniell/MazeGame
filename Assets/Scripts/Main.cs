@@ -91,14 +91,7 @@ namespace Maze
 
                 _interactiveObject[i].Update();
             }
-
-            IEnumerator etr = _interactiveObject.GetEnumerator();
-
-            while(etr.MoveNext())
-            {
-                Debug.LogError(etr.Current);
-            }
-            etr.Reset();
+          
         }
 
 
