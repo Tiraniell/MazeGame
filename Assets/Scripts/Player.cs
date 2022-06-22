@@ -34,7 +34,7 @@ namespace Maze
             SinglePlayerData.PlayerDead = isDead;
             SinglePlayerData.PlayerName = gameObject.name;
 
-            _data = new StreamData();
+            _data = new XMLData();
             
 
         }
