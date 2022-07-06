@@ -18,6 +18,9 @@ namespace Maze
 
         private ISaveData _data;
 
+        [SerializeField] Transform PlayerDot;
+
+
         private void Awake()
         {
             _transform = transform;
@@ -49,6 +52,8 @@ namespace Maze
             {
                 Debug.Log("No Rigibody");
             }
+
+            PlayerDot.position = new Vector3(transform.position.x, PlayerDot.position.y, transform.position.z);
 
             SinglePlayerData.PlayerPosition = _transform.position;
         }
